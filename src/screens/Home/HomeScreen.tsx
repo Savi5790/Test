@@ -20,10 +20,10 @@ export class HomeScr extends Component {
   render() {
     return (
       <View style={styles.center}>
-        <Text style={styles.textOut}> Привет, армия</Text>
+        <Text style={styles.textOut}>Здравствуйте</Text>
         <TextInput
           style={styles.input}
-          placeholder="EnterText"
+          placeholder="Введите текст"
           value={this.state.name} // это дефолтное состояние
           onChangeText={this.changeText}
         />
