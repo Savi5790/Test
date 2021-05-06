@@ -11,6 +11,9 @@ import {
   Alert,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+
+import {fonts} from '../../styles/constants';
+
 export class HomeScr extends Component {
   constructor(props) {
     super(props);
@@ -29,20 +32,18 @@ export class HomeScr extends Component {
   };
   render() {
     return (
-      //<LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']}>
-
       <View style={styles.center}>
         <ImageBackground source={coffeimages} style={styles.images}>
-          <LinearGradient
-            colors={[ 'transparent', 'rgba(255,255,255,0.8)']} stu
-            >
+          <LinearGradient colors={['transparent', 'rgba(255,255,255,0.8)']}>
             <View style={styles.vverh}>
               <Text style={styles.textOut}>Здравствуйте</Text>
             </View>
+
             <View style={styles.seredina}>
               <TextInput
                 style={styles.input}
                 placeholder="Введите текст"
+                placeholderTextColor="red"
                 value={this.state.name} // это дефолтное состояние
                 onChangeText={this.changeText}
               />
@@ -76,36 +77,37 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   seredina: {
-    marginTop: '100%',
+    marginTop: '70%',
   },
   niz: {
     marginTop: 0,
   },
   textOut: {
     color: 'white',
-
+    fontFamily: fonts.SFUI_HEAVYItalic,
     fontSize: 42,
-    fontWeight: 'bold',
     textAlign: 'center',
     backgroundColor: '#000000a0',
   },
   textOut1: {
-    fontSize: 28,
+    fontFamily: fonts.SFUI_LIGHT,
+    fontSize: 27,
     textAlign: 'center',
   },
   input: {
+    
     alignSelf: 'center',
     textAlign: 'center',
     borderWidth: 1,
     padding: 8,
     margin: 10,
-    width: 200,
+    width: 210,
   },
   buttInput: {
     textAlign: 'center',
     alignSelf: 'center',
     margin: 1,
-    width: 162,
+    width: 172,
     borderWidth: 0,
     padding: 10,
     borderColor: 'black',
@@ -121,8 +123,8 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
-    
-   /* paddingLeft: 15,
+
+    /* paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 5,
     marginTop: 16,
