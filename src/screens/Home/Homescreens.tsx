@@ -1,61 +1,75 @@
+import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  Image,
   ImageBackground,
   TouchableOpacity,
   TextInput,
-  Button,
-  Alert,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
 import {fonts} from '../../styles/constants';
 
-export class HomeScr extends Component {
-  constructor(props) {
+interface Props {
+  navigation: any
+}
+export class Homescreens extends React.Component<Props> {
+  constructor(props: any) {
     super(props);
+    
   }
-
+  
   state = {
     textField: '',
     name: '',
   };
-  handlePress = () => {
+
+  handlePress = (): void => {
     this.setState({textField: this.state.name});
     this.setState({name: ''});
+    this.props.navigation.navigate ("HomeScreen");
   };
-  changeText = (text) => {
+
+  navigateToAnotherScreen = (): any => {
+        this.props.navigation.navigate ("AboutScreen");
+      };
+      
+  changeText = (text: string): void => {
     this.setState({name: text});
   };
-  render() {
-    return (
-      <View style={styles.center}>
-        <ImageBackground source={coffeimages} style={styles.images}>
-          <LinearGradient colors={['transparent', 'rgba(255,255,255,0.8)']}>
-            <View style={styles.vverh}>
-              <Text style={styles.textOut}>Здравствуйте</Text>
-            </View>
 
-            <View style={styles.seredina}>
-              <TextInput
-                style={styles.input}
-                placeholder="Введите текст"
-                placeholderTextColor="red"
-                value={this.state.name} // это дефолтное состояние
-                onChangeText={this.changeText}
-              />
-            </View>
-            <View style={styles.niz}>
-              <Text>Your message: {this.state.textField}</Text>
-              <TouchableOpacity
-                style={styles.buttInput}
-                title="Сохранить"
-                color="red"
-                onPress={this.handlePress}>
-                <Text style={styles.textOut1}>Сохранить </Text>
+  render() {  
+    return (
+          <View>
+        <ImageBackground source={coffeimages} style={styles.imageBack}>
+          <LinearGradient colors={['transparent', 'rgba(255,255,255,0.8)']}>
+            <View style={styles.containerStyle}>
+              <View>
+                <Text style={styles.styleText}>Здравствуйте</Text>
+              </View>
+              <View>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Введите текст"
+                  value={this.state.name} // это дефолтное состояние
+                  onChangeText={this.changeText}
+                />
+              </View>
+              <View style={styles.saveMessageContainer}>
+                <Text style={styles.viewMessage}>
+                  Your message: {this.state.textField}
+                </Text>
+                <TouchableOpacity
+                  style={styles.styleTouchable}
+                  title="Сохранить"
+                  color="red"
+                  onPress={this.handlePress}>
+                  <Text style={styles.textTouchable}>Сохранить </Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity onPress={this.navigateToAnotherScreen}>
+                <Text>Перейти</Text>
               </TouchableOpacity>
             </View>
           </LinearGradient>
@@ -66,69 +80,46 @@ export class HomeScr extends Component {
 }
 
 const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    flexDirection: 'column',
+  imageBack: {
+    height: '100%',
   },
-  styleImage: {
-    marginTop: 0,
+  containerStyle: {
+    height: '100%',
+    width: '100%',
+    justifyContent: 'space-around',
   },
-  vverh: {
-    marginTop: 0,
-  },
-  seredina: {
-    marginTop: '70%',
-  },
-  niz: {
-    marginTop: 0,
-  },
-  textOut: {
+  styleText: {
     color: 'white',
     fontFamily: fonts.SFUI_HEAVYItalic,
     fontSize: 42,
     textAlign: 'center',
     backgroundColor: '#000000a0',
   },
-  textOut1: {
-    fontFamily: fonts.SFUI_LIGHT,
-    fontSize: 27,
-    textAlign: 'center',
-  },
   input: {
-    
     alignSelf: 'center',
     textAlign: 'center',
     borderWidth: 1,
-    padding: 8,
-    margin: 10,
     width: 210,
+    backgroundColor: 'rgba(225,225,225,0.8)',
   },
-  buttInput: {
+  styleTouchable: {
     textAlign: 'center',
     alignSelf: 'center',
-    margin: 1,
-    width: 172,
-    borderWidth: 0,
-    padding: 10,
     borderColor: 'black',
-    justifyContent: 'center',
     //backgroundColor: 'red',
   },
-  images: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
+  saveMessageContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
   },
-  linearGradient: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-
-    /* paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5,
-    marginTop: 16,
-    width: 350,*/
+  viewMessage: {
+    alignSelf: 'center',
+  },
+  textTouchable: {
+    fontFamily: fonts.SFUI_LIGHT,
+    fontSize: 27,
+    textAlign: 'center',
   },
 });
 

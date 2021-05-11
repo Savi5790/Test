@@ -11,7 +11,9 @@ import {
   Alert,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-export class HomeScr extends Component {
+import {fonts} from '../../styles/constants';
+
+export class HomeScreen extends Component {
   constructor(props) {
     super(props);
   }
@@ -29,31 +31,33 @@ export class HomeScr extends Component {
   };
   render() {
     return (
-      //<LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']}>
-
       <View style={styles.center}>
-        <ImageBackground source={remote} style={styles.images}>
-          <View style={styles.vverh}>
-            <Text style={styles.textOut}>Здравствуйте</Text>
-          </View>
-          <View style={styles.seredina}>
-            <TextInput
-              style={styles.input}
-              placeholder="Введите текст"
-              value={this.state.name} // это дефолтное состояние
-              onChangeText={this.changeText}
-            />
-          </View>
-          <View style={styles.niz}>
-            <Text>Your message: {this.state.textField}</Text>
-            <TouchableOpacity
-              style={styles.buttInput}
-              title="Сохранить"
-              color="red"
-              onPress={this.handlePress}>
-              <Text style={styles.textOut1}>Сохранить </Text>
-            </TouchableOpacity>
-          </View>
+        <ImageBackground source={coffeimages} style={styles.images}>
+          <LinearGradient colors={['transparent', 'rgba(255,255,255,0.8)']}>
+            <View style={styles.vverh}>
+              <Text style={styles.textOut}>Здравствуйте</Text>
+            </View>
+
+            <View style={styles.seredina}>
+              <TextInput
+                style={styles.input}
+                placeholder="Введите текст"
+                placeholderTextColor="red"
+                value={this.state.name} // это дефолтное состояние
+                onChangeText={this.changeText}
+              />
+            </View>
+            <View style={styles.niz}>
+              <Text>Your message: {this.state.textField}</Text>
+              <TouchableOpacity
+                style={styles.buttInput}
+                title="Сохранить"
+                color="red"
+                onPress={this.handlePress}>
+                <Text style={styles.textOut1}>Сохранить </Text>
+              </TouchableOpacity>
+            </View>
+          </LinearGradient>
         </ImageBackground>
       </View>
     );
@@ -72,20 +76,21 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   seredina: {
-    marginTop: '100%',
+    marginTop: '70%',
   },
   niz: {
     marginTop: 0,
   },
   textOut: {
     color: 'white',
+    fontFamily: fonts.SFUI_HEAVYItalic,
     fontSize: 42,
-    fontWeight: 'bold',
     textAlign: 'center',
     backgroundColor: '#000000a0',
   },
   textOut1: {
-    fontSize: 28,
+    fontFamily: fonts.SFUI_LIGHT,
+    fontSize: 27,
     textAlign: 'center',
   },
   input: {
@@ -94,27 +99,37 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 8,
     margin: 10,
-    width: 200,
+    width: 210,
   },
   buttInput: {
     textAlign: 'center',
     alignSelf: 'center',
     margin: 1,
-    width: 162,
+    width: 172,
     borderWidth: 0,
     padding: 10,
     borderColor: 'black',
     justifyContent: 'center',
-    backgroundColor: 'red',
+    //backgroundColor: 'red',
   },
   images: {
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
   },
+  linearGradient: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+
+    /* paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+    marginTop: 16,
+    width: 350,*/
+  },
 });
 
-const remote = {
+const coffeimages = {
   uri: 'https://i1.wallbox.ru/wallpapers/main/201624/e55123beb0f8bce.jpg',
 };
-const resizeMode = 'center';
