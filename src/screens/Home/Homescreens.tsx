@@ -12,14 +12,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import {fonts} from '../../styles/constants';
 
 interface Props {
-  navigation: any
+  navigation: any;
 }
 export class Homescreens extends React.Component<Props> {
   constructor(props: any) {
     super(props);
-    
   }
-  
+
   state = {
     textField: '',
     name: '',
@@ -28,20 +27,20 @@ export class Homescreens extends React.Component<Props> {
   handlePress = (): void => {
     this.setState({textField: this.state.name});
     this.setState({name: ''});
-    this.props.navigation.navigate ("HomeScreen");
+    this.props.navigation.navigate('AboutScreen', {namer: this.state.name});
   };
 
   navigateToAnotherScreen = (): any => {
-        this.props.navigation.navigate ("AboutScreen");
-      };
-      
+    this.props.navigation.navigate('HomeScreen');
+  };
+
   changeText = (text: string): void => {
     this.setState({name: text});
   };
 
-  render() {  
+  render() {
     return (
-          <View>
+      <View>
         <ImageBackground source={coffeimages} style={styles.imageBack}>
           <LinearGradient colors={['transparent', 'rgba(255,255,255,0.8)']}>
             <View style={styles.containerStyle}>

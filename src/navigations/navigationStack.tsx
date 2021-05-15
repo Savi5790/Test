@@ -13,7 +13,11 @@ export const MyStack = () => {
       <Stack.Navigator>
         <Stack.Screen name="Homescreens" component={Homescreens} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="AboutScreen" component={AboutScreen} />
+        <Stack.Screen
+          name="AboutScreen"
+          component={AboutScreen}
+          options={{title: 'Окно приветствия'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
