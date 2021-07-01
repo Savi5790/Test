@@ -33,7 +33,7 @@ export class HomeScreen extends Component {
     return (
       <View style={styles.center}>
         <ImageBackground source={coffeimages} style={styles.images}>
-          <LinearGradient colors={['transparent', 'rgba(255,255,255,0.8)']}>
+          <LinearGradient colors={['transparent', 'rgba(254,255,255,0.8)']}>
             <View style={styles.vverh}>
               <Text style={styles.textOut}>Здравствуйте</Text>
             </View>
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   seredina: {
-    marginTop: '70%',
+    marginTop: '66%',
   },
   niz: {
     marginTop: 0,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   textOut1: {
     fontFamily: fonts.SFUI_LIGHT,
-    fontSize: 27,
+    fontSize: 26,
     textAlign: 'center',
   },
   input: {

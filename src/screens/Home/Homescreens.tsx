@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.SFUI_LIGHT,
     fontSize: 27,
     textAlign: 'center',
+    backgroundColor: 'blue',
   },
 });
 
