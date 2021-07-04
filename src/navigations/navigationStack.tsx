@@ -5,13 +5,20 @@ import {NavigationContainer} from '@react-navigation/native';
 import {Homescreens} from '../screens/Home/Homescreens';
 import {AboutScreen} from '../screens/Home/AboutScreen';
 import {HomeScreen} from '../screens/Home/HomeScreen';
+import {registrationScreen} from '../screens/Home/registrationScreen';
 const Stack = createStackNavigator();
 
 export const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          name="registrationScreen"
+          component={registrationScreen}
+        />
+
         <Stack.Screen name="Homescreens" component={Homescreens} />
+
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen
           name="AboutScreen"
